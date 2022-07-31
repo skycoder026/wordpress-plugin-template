@@ -1,0 +1,20 @@
+{
+    "name": "skycoder/wedevs-academy",
+    "description": "A tutorial plugin for weDevs Academy",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "WeDevs\\Academy\\": "includes/"
+        },
+        "files": []
+    },
+    "authors": [
+        {
+            "name": "skycoder026",
+            "email": "57054683+skycoder026@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
