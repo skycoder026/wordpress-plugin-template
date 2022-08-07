@@ -12,10 +12,13 @@
  * 
  */
 
+use WeDevs\Academy\Installer;
+
  if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
  }
 
+ require_once __DIR__ . '/helpers/app-helper.php';
  require_once __DIR__ . '/vendor/autoload.php';
 
 
@@ -65,10 +68,12 @@ final class WeDevs_Academy {
      * @return void
      */
     function define_constants() {
+        define( 'WD_TRANSLATE', 'wedevs-academy' );
         define( 'WD_ACADEMY_VERSION', self::version );
         define( 'WD_ACADEMY_FILE', __FILE__ );
         define( 'WD_ACADEMY_PATH', __DIR__ );
         define( 'WD_ACADEMY_URL', plugins_url( '', WD_ACADEMY_FILE ) );
+        define( 'WD_ACADEMY_VIEWS', WD_ACADEMY_PATH . '/resources/views' );
         define( 'WD_ACADEMY_ASSETS', WD_ACADEMY_URL . '/assets' );
         define( 'WD_ACADEMY_UPLOADS', WD_ACADEMY_ASSETS . '/uploads' );
         define( 'WD_ACADEMY_IMAGES', WD_ACADEMY_ASSETS . '/images' );
@@ -96,14 +101,7 @@ final class WeDevs_Academy {
      * @return void
      */
     public function activate() {
-
-        $installed = get_option( 'wd_academy_installed' );
-
-        if ( ! $installed ) {
-            update_option( 'wd_academy_installed', time() );
-        }
-        
-        update_option( 'wd_academy_version', WD_ACADEMY_VERSION );
+        (new Installer)->run();
     }
 }
 
