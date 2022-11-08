@@ -16,9 +16,9 @@ class Admin {
      * @return void
      */
     function __construct() {
-        $this->dispach_actions();
+        // $this->dispach_actions();
         
-        new Menu();
+        // new Menu();
     }
 
     public function dispach_actions()
